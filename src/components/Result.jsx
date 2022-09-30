@@ -7,8 +7,10 @@ function Result() {
 
   return(
     <div className='w-full h-auto mb-8 font-semibold text-white text-7xl flex items-center justify-end'>
-    {/* {console.log(finalResult)} */}
-    {finalResult}
+    {finalResult.length <= 8
+      ? finalResult
+      : (Number(finalResult)).toFixed(2)
+    }
     </div>
   );
 }
