@@ -27,7 +27,7 @@ module.exports = {
         'number': '#343434',
         'operation': '#FF9F0A',
         'utility': '#A5A5A5',
-        'border': '#DFDFDF',
+        'border': '#666666',
       },
       height: {
         '18': '4.5rem',
@@ -37,6 +37,9 @@ module.exports = {
       },
       width: {
         '18': '4.5rem',
+      },
+      screens: {
+        'ssm': '26rem'
       }
     },
   },

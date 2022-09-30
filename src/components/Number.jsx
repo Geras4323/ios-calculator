@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ResultsContext } from '../contexts/ResultsContext';
 
-function Number({value}) {
+function Number({value, ancho, space}) {
   const {
     firstValue,
     setFirstValue,
@@ -41,7 +41,7 @@ function Number({value}) {
 
   return (
     <button
-      className='w-18 h-18 rounded-full text-white bg-number'
+      className={`${ancho} h-18 rounded-full text-white bg-number ${space}`}
       onClick={() => addNumber(value)}
     >
     {value}
