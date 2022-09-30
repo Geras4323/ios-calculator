@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { ResultsContext } from '../contexts/ResultsContext';
+import { HistoryContext } from '../contexts/HistoryContext.js';
+
 
 function Caculate() {
   const {
@@ -11,8 +13,14 @@ function Caculate() {
     setFirstValue,
     setSecondValue,
     setSign,
-    setIsDone
-  } = React.useContext(ResultsContext)
+    setIsDone,
+    textResult
+  } = React.useContext(ResultsContext);
+
+  const {
+    history,
+    setHistory
+  } = React.useContext(HistoryContext);
 
   function Calcular() {
     let primerValor = Number(firstValue)
@@ -40,6 +48,7 @@ function Caculate() {
     setSign('')
 
     setIsDone(true)
+    setHistory([...history, {operation: textResult, result: calculo.toString()}])
   }
 
   return (

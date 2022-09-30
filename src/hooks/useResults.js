@@ -9,12 +9,16 @@ function useResults() {
   const [finalResult, setFinalResult] = React.useState('')
   const [isDone, setIsDone] = React.useState(true)
 
+  const [textResult, setTextResult] = React.useState('')
+
   React.useEffect(() => {
     const primerValor = firstValue;
     const signo = sign;
     const segundoValor = secondValue;
     const valorTotal = primerValor + signo + segundoValor;
     setFinalResult(valorTotal)
+    const valorATexto = primerValor + " " + signo + " " + segundoValor;
+    setTextResult(valorATexto)
   }, [firstValue, secondValue, sign])
 
   return {
@@ -31,7 +35,8 @@ function useResults() {
     finalResult,
     setFinalResult,
     isDone,
-    setIsDone
+    setIsDone,
+    textResult
   }
 }
 
