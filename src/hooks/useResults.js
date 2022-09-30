@@ -7,6 +7,7 @@ function useResults() {
   const [hasSecondValue, setHasSecondValue] = React.useState(false)
   const [sign, setSign] = React.useState('')
   const [finalResult, setFinalResult] = React.useState('')
+  const [isDone, setIsDone] = React.useState(true)
 
   React.useEffect(() => {
     const primerValor = firstValue;
@@ -28,7 +29,9 @@ function useResults() {
     sign,
     setSign,
     finalResult,
-    setFinalResult
+    setFinalResult,
+    isDone,
+    setIsDone
   }
 }
 

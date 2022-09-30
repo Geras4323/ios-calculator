@@ -9,18 +9,23 @@ function Number({value}) {
     hasFirstValue,
     secondValue,
     setSecondValue,
+    isDone,
+    setIsDone
   } = React.useContext(ResultsContext);
 
 
   function addNumber(number) {
     let primerValor;
     let segundoValor;
+    let hecho = isDone  // easier debugging
 
+    // debugger;
     if (!hasFirstValue) {
       primerValor = firstValue;
-      // debugger;
-      if (primerValor === '0' && number !== '.') {
+
+      if (primerValor === '0' && number !== '.' || hecho) {
         primerValor = number;
+        setIsDone(false)
       } else {
         primerValor += number;
       }

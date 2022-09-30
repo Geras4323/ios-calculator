@@ -11,6 +11,7 @@ function Caculate() {
     setFirstValue,
     setSecondValue,
     setSign,
+    setIsDone
   } = React.useContext(ResultsContext)
 
   function Calcular() {
@@ -33,12 +34,12 @@ function Caculate() {
         break;
     }
     // debugger;
-    if (calculo === 0) {
-      setHasFirstValue(false);
-    }
+    setHasFirstValue(false);
     setFirstValue(calculo.toString())
     setSecondValue('')
     setSign('')
+
+    setIsDone(true)
   }
 
   return (
