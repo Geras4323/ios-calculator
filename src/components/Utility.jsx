@@ -14,27 +14,29 @@ function Utility({value}) {
   } = React.useContext(ResultsContext)
 
   function applyUtil(utility) {
-    switch (utility) {
-      case 'AC':
-        setFirstValue('0');
-        setSecondValue('');
-        setSign('');
-        setHasFirstValue(false);
-        break;
-      case '%':
-        if (!hasFirstValue) {
-          let primerValor = Number(firstValue);
-          primerValor /= 100;
-          setFirstValue(primerValor.toString())
-        } else {
-          let segundoValor = Number(secondValue);
-          segundoValor /= 100;
-          setSecondValue(segundoValor.toString())
-        }
-        break;
-      case '+/-':
-        let primerValorInvertido = -Number(firstValue)
-        setFirstValue(primerValorInvertido.toString())
+    if (firstValue !== '.') {
+      switch (utility) {
+        case 'AC':
+          setFirstValue('0');
+          setSecondValue('');
+          setSign('');
+          setHasFirstValue(false);
+          break;
+        case '%':
+          if (!hasFirstValue) {
+            let primerValor = Number(firstValue);
+            primerValor /= 100;
+            setFirstValue(primerValor.toString())
+          } else {
+            let segundoValor = Number(secondValue);
+            segundoValor /= 100;
+            setSecondValue(segundoValor.toString())
+          }
+          break;
+        case '+/-':
+          let primerValorInvertido = -Number(firstValue)
+          setFirstValue(primerValorInvertido.toString())
+      }
     }
   }
 

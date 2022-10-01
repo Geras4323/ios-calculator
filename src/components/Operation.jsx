@@ -4,13 +4,16 @@ import { ResultsContext } from '../contexts/ResultsContext';
 
 function Operation({value}) {
   const {
+    firstValue,
     setSign,
     setHasFirstValue,
   } = React.useContext(ResultsContext)
 
   function addSign(sign) {
-    setHasFirstValue(true)
-    setSign(sign)
+    if (firstValue !== '.') {
+      setHasFirstValue(true)
+      setSign(sign)
+    }
   }
 
   return (
