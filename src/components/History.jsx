@@ -7,7 +7,6 @@ function History() {
     setIsHistoryShown,
     history,
     setHistory,
-    saveData
   } = React.useContext(HistoryContext)
 
   function closeHistory() {
@@ -39,7 +38,10 @@ function History() {
 
       <section className="w-full h-full max-h-full bg-black py-2 flex flex-col justify-end overflow-y-auto">
         {history.map(item => (
-          <div className="h-auto flex flex-col justify-end text-end space-y-1 py-1 px-2 mb-2 border-t border-t-border">
+          <div
+            className="h-auto flex flex-col justify-end text-end space-y-1 py-1 px-2 mb-2 border-t border-t-border"
+            key={history.indexOf(item)}
+          >
             <span className="text-2xl text-utility">{item.operation}</span>
             <span className="text-3xl text-white">{item.result}</span>
           </div>
