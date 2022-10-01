@@ -19,7 +19,7 @@ function Caculate() {
 
   const {
     history,
-    setHistory
+    setHistory,
   } = React.useContext(HistoryContext);
 
   function Calcular() {
@@ -41,15 +41,15 @@ function Caculate() {
         calculo = primerValor / segundoValor;
         break;
     }
-    // debugger;
     setHasFirstValue(false);
     setFirstValue(calculo.toString())
     setSecondValue('')
     setSign('')
 
-    setIsDone(true)
     setHistory([...history, {operation: textResult, result: calculo.toString()}])
+    setIsDone(true)
   }
+
 
   return (
     <button
