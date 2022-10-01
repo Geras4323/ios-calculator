@@ -9,34 +9,38 @@ function Utility({value}) {
     setFirstValue,
     secondValue,
     setSecondValue,
-    setSign,
+    setOperation,
     setHasFirstValue,
+    setIsDone
   } = React.useContext(ResultsContext)
 
   function applyUtil(utility) {
-    if (firstValue !== '.') {
-      switch (utility) {
-        case 'AC':
-          setFirstValue('0');
-          setSecondValue('');
-          setSign('');
-          setHasFirstValue(false);
-          break;
-        case '%':
-          if (!hasFirstValue) {
+    switch (utility) {
+      case 'AC':              // restarts everything
+        setFirstValue('0');
+        setSecondValue('');
+        setOperation('');
+        setHasFirstValue(false);
+        setIsDone(false);
+        break;
+      case '%':
+        if (firstValue !== '.') {
+          if (!hasFirstValue) {   // adds to firstValue
             let primerValor = Number(firstValue);
             primerValor /= 100;
             setFirstValue(primerValor.toString())
-          } else {
+          } else {                // adds to secondValue
             let segundoValor = Number(secondValue);
             segundoValor /= 100;
             setSecondValue(segundoValor.toString())
           }
-          break;
-        case '+/-':
+        }
+        break;
+      case '+/-':   // inverts sign (+ -> -)
+        if (firstValue !== '.') {
           let primerValorInvertido = -Number(firstValue)
           setFirstValue(primerValorInvertido.toString())
-      }
+        }
     }
   }
 

@@ -5,21 +5,21 @@ function useResults() {
   const [hasFirstValue, setHasFirstValue] = React.useState(false)
   const [secondValue, setSecondValue] = React.useState('')
   const [hasSecondValue, setHasSecondValue] = React.useState(false)
-  const [sign, setSign] = React.useState('')
-  const [finalResult, setFinalResult] = React.useState('')
-  const [isDone, setIsDone] = React.useState(true)
+  const [operation, setOperation] = React.useState('')
+  const [finalResult, setFinalResult] = React.useState('')  // used for result printing
+  const [isDone, setIsDone] = React.useState(true)        // allows or blocks replacement of result after calculus
 
-  const [textResult, setTextResult] = React.useState('')
+  const [textResult, setTextResult] = React.useState('')  // used for history items
 
   React.useEffect(() => {
     const primerValor = firstValue;
-    const signo = sign;
+    const operacion = operation;
     const segundoValor = secondValue;
-    const valorTotal = primerValor + signo + segundoValor;
+    const valorTotal = primerValor + operacion + segundoValor;
     setFinalResult(valorTotal)
-    const valorATexto = primerValor + " " + signo + " " + segundoValor;
+    const valorATexto = primerValor + " " + operacion + " " + segundoValor;
     setTextResult(valorATexto)
-  }, [firstValue, secondValue, sign])
+  }, [firstValue, secondValue, operation])
 
   return {
     firstValue,
@@ -30,8 +30,8 @@ function useResults() {
     setSecondValue,
     hasSecondValue,
     setHasSecondValue,
-    sign,
-    setSign,
+    operation,
+    setOperation,
     finalResult,
     setFinalResult,
     isDone,

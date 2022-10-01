@@ -37,10 +37,10 @@ function History() {
       </section>
 
       <section className="w-full h-full max-h-full bg-black py-2 flex flex-col justify-end overflow-y-auto">
-        {history.map(item => (
+        {history.map(item => (  // prints an item for each entry of history
           <div
             className="h-auto flex flex-col justify-end text-end space-y-1 py-1 px-2 mb-2 border-t border-t-border"
-            key={history.indexOf(item)}
+            key={history.indexOf(item)}   // uses array position as index due to lack of own index
           >
             <span className="text-2xl text-utility">{item.operation}</span>
             <span className="text-3xl text-white">{item.result}</span>

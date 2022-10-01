@@ -5,21 +5,21 @@ import { ResultsContext } from '../contexts/ResultsContext';
 function Operation({value}) {
   const {
     firstValue,
-    setSign,
+    setOperation,
     setHasFirstValue,
   } = React.useContext(ResultsContext)
 
-  function addSign(sign) {
-    if (firstValue !== '.') {
+  function addOperation(operation) {
+    if (firstValue !== '.') {   // doesn't allow to add operation if firstValue == '.'
       setHasFirstValue(true)
-      setSign(sign)
+      setOperation(operation)
     }
   }
 
   return (
     <button
       className='w-18 h-18 rounded-full text-white bg-operation'
-      onClick={() => addSign(value)}
+      onClick={() => addOperation(value)}
     >
     {value}
     </button>

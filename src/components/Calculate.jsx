@@ -9,10 +9,10 @@ function Caculate() {
     firstValue,
     setHasFirstValue,
     secondValue,
-    sign,
+    operation,
     setFirstValue,
     setSecondValue,
-    setSign,
+    setOperation,
     setIsDone,
     textResult
   } = React.useContext(ResultsContext);
@@ -22,12 +22,12 @@ function Caculate() {
     setHistory,
   } = React.useContext(HistoryContext);
 
-  function Calcular() {
+  function Calcular() {   // turns string into numbers to operate, then returns the result as a string
     let primerValor = Number(firstValue)
     let segundoValor = Number(secondValue)
     let calculo;
 
-    switch (sign) {
+    switch (operation) {
       case '+':
         calculo = primerValor + segundoValor;
         break;
@@ -41,13 +41,14 @@ function Caculate() {
         calculo = primerValor / segundoValor;
         break;
     }
+    // resets everything ->
     setHasFirstValue(false);
     setFirstValue(calculo.toString())
     setSecondValue('')
-    setSign('')
+    setOperation('')
 
-    setHistory([...history, {operation: textResult, result: calculo.toString()}])
-    setIsDone(true)
+    setHistory([...history, {operation: textResult, result: calculo.toString()}]) // adds the result to the history
+    setIsDone(true) // lets the app know that it can replace the result shown on screen
   }
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ResultsContext } from '../contexts/ResultsContext';
 
-function Number({value, ancho, space}) {
+function Number({value, ancho, space}) {  // receives styling data
   const {
     firstValue,
     setFirstValue,
@@ -19,7 +19,6 @@ function Number({value, ancho, space}) {
     let segundoValor;
     let hecho = isDone  // easier debugging
 
-    // debugger;
     if (!hasFirstValue) {
       primerValor = firstValue;
 
@@ -29,8 +28,7 @@ function Number({value, ancho, space}) {
       } else {
         primerValor += number;
       }
-      setFirstValue(primerValor); // string
-      //////////////////
+      setFirstValue(primerValor); // sends string
     } else {
       segundoValor = secondValue;
       segundoValor += number;
@@ -41,7 +39,7 @@ function Number({value, ancho, space}) {
 
   return (
     <button
-      className={`${ancho} h-18 rounded-full text-white bg-number ${space}`}
+      className={`${ancho} h-18 rounded-full text-white bg-number ${space}`}  // uses received styling data
       onClick={() => addNumber(value)}
     >
     {value}
