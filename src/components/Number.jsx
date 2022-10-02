@@ -10,7 +10,9 @@ function Number({value, ancho, space}) {  // receives styling data
     secondValue,
     setSecondValue,
     isDone,
-    setIsDone
+    setIsDone,
+    allowDecimal,
+    setAllowDecimal
   } = React.useContext(ResultsContext);
 
 
@@ -19,6 +21,7 @@ function Number({value, ancho, space}) {  // receives styling data
     let segundoValor;
     let hecho = isDone  // easier debugging
 
+
     if (!hasFirstValue) {
       primerValor = firstValue;
 
@@ -26,12 +29,18 @@ function Number({value, ancho, space}) {  // receives styling data
         primerValor = number;
         setIsDone(false)
       } else {
-        primerValor += number;
+        if (primerValor.includes('.') && number === '.') {
+        } else {
+          primerValor += number;
+        }
       }
       setFirstValue(primerValor); // sends string
     } else {
       segundoValor = secondValue;
-      segundoValor += number;
+      if (segundoValor.includes('.') && number === '.') {
+      } else {
+        segundoValor += number;
+      }
       setSecondValue(segundoValor)
     }
   }
